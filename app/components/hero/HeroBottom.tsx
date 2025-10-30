@@ -43,17 +43,17 @@ export default function HeroBottom() {
       .to(
         elementTwoRef.current,
         { autoAlpha: 1, y: 0, onComplete: () => setStartCountTwo(true) },
-        "-=0.5"
+        "-=0.8"
       )
       .to(
         elementThreeRef.current,
         { autoAlpha: 1, y: 0, onComplete: () => setStartCountThree(true) },
-        "-=0.5"
+        "-=0.8"
       )
       .to(
         elementFourRef.current,
         { autoAlpha: 1, y: 0, onComplete: () => setStartCountFour(true) },
-        "-=0.5"
+        "-=0.8"
       );
 
     return () => {
@@ -75,7 +75,14 @@ export default function HeroBottom() {
       >
         <hr className="w-1/3" />
         <p>
-          <CountUp from={0} to={100} direction="up" duration={1} startWhen={startCountOne} />+
+          <CountUp
+            from={0}
+            to={100}
+            direction="up"
+            duration={1}
+            startWhen={startCountOne}
+          />
+          +
         </p>
         <p className="text-base">In product launches</p>
       </div>
@@ -89,7 +96,13 @@ export default function HeroBottom() {
         <hr className="w-1/3" />
         <p>
           $
-          <CountUp from={0} to={1.35} duration={1} direction="up" startWhen={startCountTwo} />
+          <CountUp
+            from={0}
+            to={1.35}
+            duration={1}
+            direction="up"
+            startWhen={startCountTwo}
+          />
           B
         </p>
         <p className="text-base">Startup funding raised</p>
@@ -103,7 +116,14 @@ export default function HeroBottom() {
       >
         <hr className="w-1/3" />
         <p>
-          <CountUp from={0} to={10} duration={1} direction="up" startWhen={startCountThree} />x ROI
+          <CountUp
+            from={0}
+            to={10}
+            duration={1}
+            direction="up"
+            startWhen={startCountThree}
+          />
+          x ROI
         </p>
         <p className="text-base">UX/UI Product Revamp</p>
       </div>
@@ -116,7 +136,14 @@ export default function HeroBottom() {
       >
         <hr className="w-1/3" />
         <p>
-          <CountUp from={0} to={25} duration={1} direction="up" startWhen={startCountFour} />K+
+          <CountUp
+            from={0}
+            to={25}
+            duration={1}
+            direction="up"
+            startWhen={startCountFour}
+          />
+          K+
         </p>
         <p className="text-base">Funds and syndicates</p>
       </div>

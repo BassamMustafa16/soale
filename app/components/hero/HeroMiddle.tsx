@@ -20,10 +20,10 @@ export default function HeroMiddle() {
     gsap.set(elements, { y: -30 });
 
     // Then animate them in
-    const tl = gsap.timeline({ defaults: { duration: 1, ease: "power3.out" } });
+    const tl = gsap.timeline({ defaults: { duration: 1, ease: "power1.out" } });
     tl.to(roundedParagraphRef.current, { autoAlpha: 1, y: 0 })
-      .to(headingRef.current, { autoAlpha: 1, y: 0 }, "-=0.3")
-      .to(paragraphRef.current, { autoAlpha: 1, y: 0 }, "-=0.2");
+      .to(headingRef.current, { autoAlpha: 1, y: 0 }, "-=0.8")
+      .to(paragraphRef.current, { autoAlpha: 1, y: 0 }, "-=0.8");
 
     return () => {
       tl.kill();

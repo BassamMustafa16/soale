@@ -10,14 +10,17 @@ export default function NavigationButton({ content }: { content: string }) {
   const tl = gsap.timeline({ paused: true });
 
   useEffect(() => {
-    gsap.set(linkRef.current, { y: -30 });
-    gsap.to(linkRef.current, { y: 0, autoAlpha: 1, duration: 1, delay: 2 });
+    gsap.set(linkRef.current, { y: 30 });
+    gsap.to(linkRef.current, { y: 0, autoAlpha: 1, duration: 1, });
     tl.to(arrowRef.current, {
       y: -48,
       x: 48,
       ease: "none",
       duration: 0.3,
     });
+    return () => {
+      tl.kill();
+    };
   });
 
   return (
