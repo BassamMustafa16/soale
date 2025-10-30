@@ -53,10 +53,7 @@ export default function HeroMiddle() {
         Creative studio powering AI, brands & digital futures
       </h1>
 
-      <p
-        ref={paragraphRef}
-        className="text-white-700 max-w-xl text-center"
-      >
+      <p ref={paragraphRef} className="text-white-700 max-w-xl text-center">
         We partner with visionary teams to build standout brands, launch smarter
         products, and grow with purpose.
       </p>

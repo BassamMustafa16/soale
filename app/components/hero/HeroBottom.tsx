@@ -2,7 +2,7 @@
 import CountUp from "../animation/CountUp";
 import { IBM_Plex_Mono } from "next/font/google";
 import { gsap } from "gsap";
-import { useEffect, useRef, useState } from "react";
+import { useLayoutEffect, useRef, useState } from "react";
 
 const ibmPlexMono = IBM_Plex_Mono({
   subsets: ["latin"],
@@ -10,31 +10,30 @@ const ibmPlexMono = IBM_Plex_Mono({
 });
 
 export default function HeroBottom() {
-  // Refs
   const elementOneRef = useRef<HTMLDivElement | null>(null);
   const elementTwoRef = useRef<HTMLDivElement | null>(null);
   const elementThreeRef = useRef<HTMLDivElement | null>(null);
   const elementFourRef = useRef<HTMLDivElement | null>(null);
 
-  // State to trigger each CountUp
   const [startCountOne, setStartCountOne] = useState(false);
   const [startCountTwo, setStartCountTwo] = useState(false);
   const [startCountThree, setStartCountThree] = useState(false);
   const [startCountFour, setStartCountFour] = useState(false);
 
-  useEffect(() => {
-    const elements = [
+  useLayoutEffect(() => {
+    // collect refs
+    const els = [
       elementOneRef.current,
       elementTwoRef.current,
       elementThreeRef.current,
       elementFourRef.current,
-    ];
+    ].filter(Boolean) as HTMLElement[];
 
-    // 1️⃣ Hide all elements immediately before animation
-    gsap.set(elements, { autoAlpha: 0, y: 30 });
+    // 1) Immediately set invisible before paint (useLayoutEffect ensures this runs before the browser paints)
+    gsap.set(els, { autoAlpha: 0, y: 30 });
 
-    // 2️⃣ Animate them in sequence
-    const tl = gsap.timeline({ defaults: { duration: 1, ease: "power3.out" } });
+    // 2) Animate them in sequence and trigger counters onComplete
+    const tl = gsap.timeline({ defaults: { duration: 1, ease: "power1.out" } });
 
     tl.to(elementOneRef.current, {
       autoAlpha: 1,
@@ -59,6 +58,8 @@ export default function HeroBottom() {
 
     return () => {
       tl.kill();
+      // optionally clear set on unmount
+      gsap.set(els, { clearProps: "all" });
     };
   }, []);
 
@@ -66,8 +67,12 @@ export default function HeroBottom() {
     <div
       className={`${ibmPlexMono.className} flex flex-row w-full justify-evenly text-4xl font-normal z-10 mb-10`}
     >
-      {/* Element 01 */}
-      <div ref={elementOneRef} className="space-y-3">
+      {/* Element 01 — note inline hidden style to be extra-safe on first paint */}
+      <div
+        ref={elementOneRef}
+        className="space-y-3"
+        style={{ opacity: 0, visibility: "hidden" }}
+      >
         <hr className="w-1/3" />
         <p>
           <CountUp from={0} to={100} direction="up" duration={1} startWhen={startCountOne} />+
@@ -76,7 +81,11 @@ export default function HeroBottom() {
       </div>
 
       {/* Element 02 */}
-      <div ref={elementTwoRef} className="space-y-3">
+      <div
+        ref={elementTwoRef}
+        className="space-y-3"
+        style={{ opacity: 0, visibility: "hidden" }}
+      >
         <hr className="w-1/3" />
         <p>
           $
@@ -87,7 +96,11 @@ export default function HeroBottom() {
       </div>
 
       {/* Element 03 */}
-      <div ref={elementThreeRef} className="space-y-3">
+      <div
+        ref={elementThreeRef}
+        className="space-y-3"
+        style={{ opacity: 0, visibility: "hidden" }}
+      >
         <hr className="w-1/3" />
         <p>
           <CountUp from={0} to={10} duration={1} direction="up" startWhen={startCountThree} />x ROI
@@ -96,7 +109,11 @@ export default function HeroBottom() {
       </div>
 
       {/* Element 04 */}
-      <div ref={elementFourRef} className="space-y-3">
+      <div
+        ref={elementFourRef}
+        className="space-y-3"
+        style={{ opacity: 0, visibility: "hidden" }}
+      >
         <hr className="w-1/3" />
         <p>
           <CountUp from={0} to={25} duration={1} direction="up" startWhen={startCountFour} />K+

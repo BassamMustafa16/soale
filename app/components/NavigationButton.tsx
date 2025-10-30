@@ -10,7 +10,7 @@ export default function NavigationButton({ content }: { content: string }) {
   const tl = gsap.timeline({ paused: true });
 
   useEffect(() => {
-    gsap.from(linkRef.current, { opacity: 0, duration: 1 });
+    gsap.from(linkRef.current, { opacity: 0, y: 30, duration: 1, delay: 2 });
     tl.to(arrowRef.current, {
       y: -48,
       x: 48,
