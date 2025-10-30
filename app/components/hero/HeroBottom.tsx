@@ -2,7 +2,7 @@
 import CountUp from "../animation/CountUp";
 import { IBM_Plex_Mono } from "next/font/google";
 import { gsap } from "gsap";
-import { useLayoutEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const ibmPlexMono = IBM_Plex_Mono({
   subsets: ["latin"],
@@ -20,7 +20,7 @@ export default function HeroBottom() {
   const [startCountThree, setStartCountThree] = useState(false);
   const [startCountFour, setStartCountFour] = useState(false);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     // collect refs
     const els = [
       elementOneRef.current,
@@ -30,7 +30,7 @@ export default function HeroBottom() {
     ].filter(Boolean) as HTMLElement[];
 
     // 1) Immediately set invisible before paint (useLayoutEffect ensures this runs before the browser paints)
-    gsap.set(els, { autoAlpha: 0, y: 30 });
+    gsap.set(els, { y: 30 });
 
     // 2) Animate them in sequence and trigger counters onComplete
     const tl = gsap.timeline({ defaults: { duration: 1, ease: "power1.out" } });

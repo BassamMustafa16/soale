@@ -10,7 +10,8 @@ export default function NavigationButton({ content }: { content: string }) {
   const tl = gsap.timeline({ paused: true });
 
   useEffect(() => {
-    gsap.from(linkRef.current, { opacity: 0, y: 30, duration: 1, delay: 2 });
+    gsap.set(linkRef.current, { y: -30 });
+    gsap.to(linkRef.current, { y: 0, autoAlpha: 1, duration: 1, delay: 2 });
     tl.to(arrowRef.current, {
       y: -48,
       x: 48,
@@ -26,6 +27,7 @@ export default function NavigationButton({ content }: { content: string }) {
       className="flex flex-row text-[#212121]"
       onMouseEnter={() => tl.play()}
       onMouseLeave={() => tl.reverse()}
+      style={{ opacity: 0, visibility: "hidden" }}
     >
       <div className="bg-white py-[13px] px-[26px] rounded-2xl font-medium">
         {content}

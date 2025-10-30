@@ -17,7 +17,7 @@ export default function HeroMiddle() {
     ];
 
     // Immediately set all to hidden before rendering
-    gsap.set(elements, { autoAlpha: 0, y: -30 });
+    gsap.set(elements, { y: -30 });
 
     // Then animate them in
     const tl = gsap.timeline({ defaults: { duration: 1, ease: "power3.out" } });
@@ -35,6 +35,7 @@ export default function HeroMiddle() {
       <div
         ref={roundedParagraphRef}
         className="flex flex-row items-center gap-3 border border-white-100 rounded-full w-fit py-2 px-4"
+        style={{ opacity: 0, visibility: "hidden" }}
       >
         <div className="">
           <Image
@@ -49,11 +50,19 @@ export default function HeroMiddle() {
         </p>
       </div>
 
-      <h1 ref={headingRef} className="text-6xl text-center">
+      <h1
+        ref={headingRef}
+        className="text-6xl text-center"
+        style={{ opacity: 0, visibility: "hidden" }}
+      >
         Creative studio powering AI, brands & digital futures
       </h1>
 
-      <p ref={paragraphRef} className="text-white-700 max-w-xl text-center">
+      <p
+        ref={paragraphRef}
+        className="text-white-700 max-w-xl text-center"
+        style={{ opacity: 0, visibility: "hidden" }}
+      >
         We partner with visionary teams to build standout brands, launch smarter
         products, and grow with purpose.
       </p>
