@@ -7,18 +7,28 @@ import { useEffect, useRef } from "react";
 export default function HeroMiddle() {
   const roundedParagraphRef = useRef<HTMLDivElement | null>(null);
   const headingRef = useRef<HTMLDivElement | null>(null);
-  const pargraphRef = useRef<HTMLDivElement | null>(null);
+  const paragraphRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    gsap.from(
-      [roundedParagraphRef.current, headingRef.current, pargraphRef.current],
-      {
-        y: -50,
-        opacity: 0,
-        duration: 0.5,
-      }
-    );
-  });
+    const elements = [
+      roundedParagraphRef.current,
+      headingRef.current,
+      paragraphRef.current,
+    ];
+
+    // Immediately set all to hidden before rendering
+    gsap.set(elements, { autoAlpha: 0, y: -30 });
+
+    // Then animate them in
+    const tl = gsap.timeline({ defaults: { duration: 1, ease: "power3.out" } });
+    tl.to(roundedParagraphRef.current, { autoAlpha: 1, y: 0 })
+      .to(headingRef.current, { autoAlpha: 1, y: 0 }, "-=0.3")
+      .to(paragraphRef.current, { autoAlpha: 1, y: 0 }, "-=0.2");
+
+    return () => {
+      tl.kill();
+    };
+  }, []);
   return (
     <div className="flex flex-col gap-10 items-center justify-center max-w-3xl z-10 grow">
       {/* Rounded pargraph */}
@@ -43,12 +53,15 @@ export default function HeroMiddle() {
         Creative studio powering AI, brands & digital futures
       </h1>
 
-      <p ref={pargraphRef} className="text-white-700 max-w-xl text-center">
+      <p
+        ref={paragraphRef}
+        className="text-white-700 max-w-xl text-center"
+      >
         We partner with visionary teams to build standout brands, launch smarter
         products, and grow with purpose.
       </p>
 
-      <NavigationButton content="Book 1:1 Meeting"/>
+      <NavigationButton content="Book 1:1 Meeting" />
     </div>
   );
 }
