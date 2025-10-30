@@ -1,5 +1,5 @@
 "use client";
-import CountUp from "./CountUp";
+import CountUp from "../animation/CountUp";
 import { IBM_Plex_Mono } from "next/font/google";
 import { gsap } from "gsap";
 import { useEffect, useRef, useState } from "react";

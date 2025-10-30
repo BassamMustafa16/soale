@@ -1,5 +1,5 @@
 "use client";
-import NavigationButton from "./NavigationButton";
+import NavigationButton from "../NavigationButton";
 import Image from "next/image";
 import { gsap } from "gsap";
 import { useEffect, useRef } from "react";
@@ -48,7 +48,7 @@ export default function HeroMiddle() {
         products, and grow with purpose.
       </p>
 
-      <NavigationButton />
+      <NavigationButton content="Book 1:1 Meeting"/>
     </div>
   );
 }

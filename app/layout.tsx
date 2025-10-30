@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 // import { Geist, Geist_Mono } from "next/font/google";
-import { IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 
 // const geistSans = Geist({
@@ -13,10 +12,6 @@ import "./globals.css";
 //   subsets: ["latin"],
 // });
 
-const ibmPlexMono = IBM_Plex_Mono({
-  weight: "500",
-  variable: "--font-plex-mono",
-});
 
 export const metadata: Metadata = {
   title: "Create Next App",

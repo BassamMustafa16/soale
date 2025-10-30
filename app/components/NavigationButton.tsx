@@ -4,7 +4,7 @@ import Link from "next/link";
 import { gsap } from "gsap";
 import { useRef, useEffect } from "react";
 
-export default function NavigationButton() {
+export default function NavigationButton({ content }: { content: string }) {
   const arrowRef = useRef<HTMLDivElement | null>(null);
   const linkRef = useRef<HTMLAnchorElement | null>(null);
   const tl = gsap.timeline({ paused: true });
@@ -28,7 +28,7 @@ export default function NavigationButton() {
       onMouseLeave={() => tl.reverse()}
     >
       <div className="bg-white py-[13px] px-[26px] rounded-2xl font-medium">
-        Book 1:1 Meeting
+        {content}
       </div>
 
       <div className="bg-white w-[48px] aspect-square flex items-center justify-center rounded-2xl relative overflow-hidden">
