@@ -21,7 +21,7 @@ export default function Navbar() {
       scrollTrigger: {
         trigger: document.body,
         start: "top top",
-        end: "200px top", // scroll distance over which animation happens
+        end: "100px top", // scroll distance over which animation happens
         scrub: true, // makes it follow scroll smoothly
       },
     });
@@ -33,7 +33,7 @@ export default function Navbar() {
       className="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-16 py-4 text-white"
       style={{
         backgroundColor: "rgba(0,0,0,0)",
-        transform: "translateY(45px)",
+        transform: "translateY(30px)",
       }}
     >
       <div className="max-w-[120px] absolute">

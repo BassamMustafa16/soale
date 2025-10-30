@@ -38,20 +38,20 @@ export default function NavigationButton() {
           ref={arrowRef}
           className="absolute top-0 right-0 grid grid-cols-2 grid-rows-2 w-[96px] aspect-square place-items-center "
         >
-          <div className="col-start-2 items-center justify-center w-[24px] aspect-square">
+          <div className="col-start-2">
             <Image
               src="/images/top-right-arrow.svg"
               alt="top right arrow"
-              width={24}
-              height={24}
+              width={30}
+              height={30}
             />
           </div>
           <div>
             <Image
               src="/images/top-right-arrow.svg"
               alt="top right arrow"
-              width={24}
-              height={24}
+              width={30}
+              height={30}
             />
           </div>
         </div>
