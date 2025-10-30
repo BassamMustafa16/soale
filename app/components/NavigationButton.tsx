@@ -6,8 +6,11 @@ import { useRef, useEffect } from "react";
 
 export default function NavigationButton() {
   const arrowRef = useRef<HTMLDivElement | null>(null);
+  const linkRef = useRef<HTMLAnchorElement | null>(null);
   const tl = gsap.timeline({ paused: true });
+
   useEffect(() => {
+    gsap.from(linkRef.current, { opacity: 0, duration: 1 });
     tl.to(arrowRef.current, {
       y: -48,
       x: 48,
@@ -15,19 +18,14 @@ export default function NavigationButton() {
       duration: 0.3,
     });
   });
-  const handleEnter = () => {
-    tl.play();
-  };
-  const handleOut = () => {
-    tl.reverse();
-  };
 
   return (
     <Link
+      ref={linkRef}
       href="#"
       className="flex flex-row text-[#212121]"
-      onMouseEnter={handleEnter}
-      onMouseLeave={handleOut}
+      onMouseEnter={() => tl.play()}
+      onMouseLeave={() => tl.reverse()}
     >
       <div className="bg-white py-[13px] px-[26px] rounded-2xl font-medium">
         Book 1:1 Meeting

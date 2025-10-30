@@ -28,36 +28,38 @@ export default function Navbar() {
   }, []);
 
   return (
-    <header
-      ref={navbarRef}
-      className="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-16 py-4 text-white"
-      style={{
-        backgroundColor: "rgba(0,0,0,0)",
-        transform: "translateY(30px)",
-      }}
-    >
-      <div className="max-w-[120px] absolute">
-        <Link href="/">
-          <Image src="/images/logo.svg" alt="Logo" width={600} height={600} />
-        </Link>
-      </div>
-      <div className="flex gap-6 mx-auto">
-        <Link href="#about" className="text-white-700 hover:text-white">
-          About
-        </Link>
-        <Link href="#work" className="text-white-700 hover:text-white">
-          Work
-        </Link>
-        <Link href="#services" className="text-white-700 hover:text-white">
-          Services
-        </Link>
-        <Link href="#pricing" className="text-white-700 hover:text-white">
-          Pricing
-        </Link>
-        <Link href="#blog" className="text-white-700 hover:text-white">
-          Blog
-        </Link>
-      </div>
-    </header>
+   
+      <header
+        ref={navbarRef}
+        className="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-16 py-4 text-white"
+        style={{
+          backgroundColor: "rgba(0,0,0,0)",
+          transform: "translateY(30px)",
+        }}
+      >
+        <div className="max-w-[120px] absolute">
+          <Link href="/">
+            <Image src="/images/logo.svg" alt="Logo" width={600} height={600} />
+          </Link>
+        </div>
+        <nav className="flex gap-6 mx-auto">
+          <Link href="#about" className="text-white-700 hover:text-white">
+            About
+          </Link>
+          <Link href="#work" className="text-white-700 hover:text-white">
+            Work
+          </Link>
+          <Link href="#services" className="text-white-700 hover:text-white">
+            Services
+          </Link>
+          <Link href="#pricing" className="text-white-700 hover:text-white">
+            Pricing
+          </Link>
+          <Link href="#blog" className="text-white-700 hover:text-white">
+            Blog
+          </Link>
+        </nav>
+      </header>
+  
   );
 }
