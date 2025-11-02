@@ -5,6 +5,7 @@
   --foreground: #ffffff;
   --white-50: #ffffff0d;
   --white-100: #ffffff1a;
+  --white-500: #ffffff80;
   --white-700: #ffffffb3;
   --black-240: #0000003d;
   --brand-orange: #f25325;
@@ -15,6 +16,7 @@
   --color-foreground: var(--foreground);
   --color-white-50: var(--white-50);
   --color-white-100: var(--white-100);
+  --color-white-500: var(--white-500);
   --color-white-700: var(--white-700);
   --color-black-240: var(--black-240);
   --color-brand-orange: var(--brand-orange);
