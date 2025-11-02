@@ -6,7 +6,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-interface FadeInUpProps {
+interface AnimatedProps {
   children: ReactNode;
   direction?: "vertical" | "horizontal";
   reverse?: boolean;
@@ -15,7 +15,7 @@ interface FadeInUpProps {
   distance?: number;
   setIsCompleted?: (isCompleted: boolean) => void;
 }
-export default function FadeInUp({
+export default function Animated({
   children,
   direction = "vertical",
   reverse = false,
@@ -23,7 +23,7 @@ export default function FadeInUp({
   startAt = "80%",
   distance = 30,
   setIsCompleted = () => {},
-}: FadeInUpProps) {
+}: AnimatedProps) {
   const childRef = useRef<HTMLDivElement | null>(null);
   useEffect(() => {
     const element = childRef.current;

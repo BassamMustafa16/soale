@@ -3,7 +3,7 @@ import NavigationButton from "../NavigationButton";
 import Image from "next/image";
 import { gsap } from "gsap";
 import { useEffect, useRef } from "react";
-import FadeInUp from "../animation/FadeInUp";
+import Animated from "../animation/Animated";
 
 export default function HeroMiddle() {
   const roundedParagraphRef = useRef<HTMLDivElement | null>(null);
@@ -67,9 +67,9 @@ export default function HeroMiddle() {
         We partner with visionary teams to build standout brands, launch smarter
         products, and grow with purpose.
       </p>
-      <FadeInUp>
+      <Animated>
         <NavigationButton content="Book 1:1 Meeting" />
-      </FadeInUp>
+      </Animated>
     </div>
   );
 }

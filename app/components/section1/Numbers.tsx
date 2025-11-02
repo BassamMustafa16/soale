@@ -1,7 +1,7 @@
 "use client";
 import CountUp from "../animation/CountUp";
 import { IBM_Plex_Mono } from "next/font/google";
-import FadeInUp from "../animation/FadeInUp";
+import Animated from "../animation/Animated";
 import { useState } from "react";
 
 const ibmPlexMono = IBM_Plex_Mono({
@@ -19,7 +19,7 @@ export default function Numbers() {
       className={`${ibmPlexMono.className} flex flex-row gap-10 w-full text-4xl font-normal z-10 mb-10`}
     >
       {/* Element 01 */}
-      <FadeInUp setIsCompleted={setFirstElementVisiable}>
+      <Animated setIsCompleted={setFirstElementVisiable}>
         <div className="space-y-3">
           <hr className="w-1/3" />
           <p>
@@ -35,9 +35,9 @@ export default function Numbers() {
           </p>
           <p className="text-base">In product launches</p>
         </div>
-      </FadeInUp>
+      </Animated>
       {/* Element 02 */}
-      <FadeInUp setIsCompleted={setSecondElementVisiable}>
+      <Animated setIsCompleted={setSecondElementVisiable}>
         <div className="space-y-3">
           <hr className="w-1/3" />
           <p>
@@ -52,7 +52,7 @@ export default function Numbers() {
           </p>
           <p className="text-base"> In product launches</p>
         </div>
-      </FadeInUp>
+      </Animated>
     </div>
   );
 }

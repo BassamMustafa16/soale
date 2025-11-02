@@ -3,15 +3,19 @@
 :root {
   --background: #000000;
   --foreground: #ffffff;
+  --white-50: #ffffff0d;
   --white-100: #ffffff1a;
   --white-700: #ffffffb3;
+  --black-240: #0000003d;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-white-50: var(--white-50);
   --color-white-100: var(--white-100);
   --color-white-700: var(--white-700);
+  --color-black-240: var(--black-240);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
@@ -27,4 +31,8 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: "Inter Tight", sans-serif;
+}
+
+h2{
+  font-size: 3rem;
 }
