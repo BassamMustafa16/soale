@@ -3,6 +3,7 @@ import NavigationButton from "../NavigationButton";
 import Image from "next/image";
 import { gsap } from "gsap";
 import { useEffect, useRef } from "react";
+import FadeInUp from "../animation/FadeInUp";
 
 export default function HeroMiddle() {
   const roundedParagraphRef = useRef<HTMLDivElement | null>(null);
@@ -22,8 +23,8 @@ export default function HeroMiddle() {
     // Then animate them in
     const tl = gsap.timeline({ defaults: { duration: 1, ease: "power1.out" } });
     tl.to(roundedParagraphRef.current, { autoAlpha: 1, y: 0 })
-      .to(headingRef.current, { autoAlpha: 1, y: 0 }, "-=0.8")
-      .to(paragraphRef.current, { autoAlpha: 1, y: 0 }, "-=0.8");
+      .to(headingRef.current, { autoAlpha: 1, y: 0 }, "-=0.6")
+      .to(paragraphRef.current, { autoAlpha: 1, y: 0 }, "-=0.6");
 
     return () => {
       tl.kill();
@@ -66,8 +67,9 @@ export default function HeroMiddle() {
         We partner with visionary teams to build standout brands, launch smarter
         products, and grow with purpose.
       </p>
-
-      <NavigationButton content="Book 1:1 Meeting" />
+      <FadeInUp>
+        <NavigationButton content="Book 1:1 Meeting" />
+      </FadeInUp>
     </div>
   );
 }

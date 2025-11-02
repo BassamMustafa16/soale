@@ -3,19 +3,19 @@ import Image from "next/image";
 import Link from "next/link";
 import { gsap } from "gsap";
 import { useRef, useEffect } from "react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function NavigationButton({ content }: { content: string }) {
   const arrowRef = useRef<HTMLDivElement | null>(null);
-  const linkRef = useRef<HTMLAnchorElement | null>(null);
   const tl = gsap.timeline({ paused: true });
 
   useEffect(() => {
-    gsap.set(linkRef.current, { y: 30 });
-    gsap.to(linkRef.current, { y: 0, autoAlpha: 1, duration: 1, });
     tl.to(arrowRef.current, {
       y: -48,
       x: 48,
-      ease: "none",
+      ease: "power1.out",
       duration: 0.3,
     });
     return () => {
@@ -25,12 +25,10 @@ export default function NavigationButton({ content }: { content: string }) {
 
   return (
     <Link
-      ref={linkRef}
       href="#"
-      className="flex flex-row text-[#212121]"
+      className="flex flex-row text-[#212121] w-fit"
       onMouseEnter={() => tl.play()}
       onMouseLeave={() => tl.reverse()}
-      style={{ opacity: 0, visibility: "hidden" }}
     >
       <div className="bg-white py-[13px] px-[26px] rounded-2xl font-medium">
         {content}

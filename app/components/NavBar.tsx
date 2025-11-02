@@ -31,7 +31,7 @@ export default function Navbar() {
    
       <header
         ref={navbarRef}
-        className="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-16 py-4 text-white"
+        className="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-16 py-5 text-white"
         style={{
           backgroundColor: "rgba(0,0,0,0)",
           transform: "translateY(30px)",
