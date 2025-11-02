@@ -7,6 +7,7 @@
   --white-100: #ffffff1a;
   --white-700: #ffffffb3;
   --black-240: #0000003d;
+  --brand-orange: #f25325;
 }
 
 @theme inline {
@@ -16,6 +17,7 @@
   --color-white-100: var(--white-100);
   --color-white-700: var(--white-700);
   --color-black-240: var(--black-240);
+  --color-brand-orange: var(--brand-orange);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
@@ -33,6 +35,6 @@ body {
   font-family: "Inter Tight", sans-serif;
 }
 
-h2{
+h2 {
   font-size: 3rem;
 }

@@ -1,11 +1,9 @@
 "use client";
-import Image from "next/image";
 import Link from "next/link";
 import { gsap } from "gsap";
 import { useRef, useEffect } from "react";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import TopRightArrow from "./svgs/TopRightArrow";
 
-gsap.registerPlugin(ScrollTrigger);
 
 export default function NavigationButton({ content }: { content: string }) {
   const arrowRef = useRef<HTMLDivElement | null>(null);
@@ -40,20 +38,10 @@ export default function NavigationButton({ content }: { content: string }) {
           className="absolute top-0 right-0 grid grid-cols-2 grid-rows-2 w-[96px] aspect-square place-items-center "
         >
           <div className="col-start-2">
-            <Image
-              src="/images/top-right-arrow.svg"
-              alt="top right arrow"
-              width={30}
-              height={30}
-            />
+            <TopRightArrow />
           </div>
           <div>
-            <Image
-              src="/images/top-right-arrow.svg"
-              alt="top right arrow"
-              width={30}
-              height={30}
-            />
+            <TopRightArrow />
           </div>
         </div>
       </div>
