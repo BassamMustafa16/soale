@@ -22,6 +22,7 @@
   --color-brand-orange: var(--brand-orange);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-plex-mono: var(--font-plex-mono);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -39,4 +40,18 @@ body {
 
 h2 {
   font-size: 3rem;
+}
+
+/* Under 1024px: shrink to 2.5rem */
+@media screen and (max-width: 1024px) {
+  h2 {
+    font-size: 2.5rem;
+  }
+}
+
+/* Under 768px: shrink again to 2rem */
+@media screen and (max-width: 768px) {
+  h2 {
+    font-size: 2rem;
+  }
 }

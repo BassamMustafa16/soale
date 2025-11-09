@@ -31,7 +31,7 @@ export default function Animated({
     const axis = direction === "horizontal" ? "x" : "y";
     const offset = reverse ? -distance : distance;
 
-    gsap.set(element, { [axis]: offset });
+    gsap.set(element, { [axis]: offset, autoAlpha: 0 });
     gsap.to(element, {
       y: 0,
       autoAlpha: 1,

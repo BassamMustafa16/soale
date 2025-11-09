@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 // import { Geist, Geist_Mono } from "next/font/google";
+import { IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 
 // const geistSans = Geist({
@@ -12,6 +13,11 @@ import "./globals.css";
 //   subsets: ["latin"],
 // });
 
+const ibmPlexMono = IBM_Plex_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500", "700"],
+  variable: "--font-plex-mono",
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -25,7 +31,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`antialiased h-1000`}>{children}</body>
+      <body className={`antialiased h-1000 ${ibmPlexMono.variable}`}>
+        {children}
+      </body>
     </html>
   );
 }
