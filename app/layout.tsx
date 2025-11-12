@@ -31,7 +31,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`antialiased h-1000 ${ibmPlexMono.variable}`}>
+      <body className={`antialiased h-2000 ${ibmPlexMono.variable}`}>
         {children}
       </body>
     </html>

@@ -19,7 +19,7 @@ export default function Section3() {
             height={16}
           />
         </div>
-        <p className="font-plex-mono uppercase text-xs font-medium tracking-[1.5px] leading-[150%]">
+        <p className="font-plex-mono uppercase text-sm font-medium tracking-[1.5px] leading-[150%]">
           OUTCOMES AND Results
         </p>
       </div>

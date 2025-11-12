@@ -13,25 +13,25 @@ export function useAnimation(selector = ".animated") {
       start: "top bottom-=150px",
       end: "bottom 150px",
 
-      onLeave: (batch) =>
-        gsap.to(batch, {
-          y: -30,
-          autoAlpha: 0,
-          duration: 1,
-          ease: "power1.out",
-          overwrite: true,
-          stagger: { each: 0.4, from: "start" },
-        }),
+      // onLeave: (batch) =>
+      //   gsap.to(batch, {
+      //     y: -30,
+      //     autoAlpha: 0,
+      //     duration: 1,
+      //     ease: "power1.out",
+      //     overwrite: true,
+      //     stagger: { each: 0.4, from: "start" },
+      //   }),
 
-      onLeaveBack: (batch) =>
-        gsap.to(batch, {
-          y: 30,
-          autoAlpha: 0,
-          duration: 1,
-          ease: "power1.out",
-          overwrite: true,
-          stagger: { each: 0.4, from: "start" },
-        }),
+      // onLeaveBack: (batch) =>
+      //   gsap.to(batch, {
+      //     y: 30,
+      //     autoAlpha: 0,
+      //     duration: 1,
+      //     ease: "power1.out",
+      //     overwrite: true,
+      //     stagger: { each: 0.4, from: "start" },
+      //   }),
 
       onEnter: (batch) =>
         gsap.to(batch, {
@@ -43,14 +43,14 @@ export function useAnimation(selector = ".animated") {
           stagger: { each: 0.4, from: "start" },
         }),
 
-      onEnterBack: (batch) =>
-        gsap.to(batch, {
-          y: 0,
-          autoAlpha: 1,
-          duration: 1,
-          ease: "power1.out",
-          overwrite: true,
-        }),
+      // onEnterBack: (batch) =>
+      //   gsap.to(batch, {
+      //     y: 0,
+      //     autoAlpha: 1,
+      //     duration: 1,
+      //     ease: "power1.out",
+      //     overwrite: true,
+      //   }),
     });
   }, [selector]);
 }

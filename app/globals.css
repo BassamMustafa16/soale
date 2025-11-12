@@ -55,3 +55,20 @@ h2 {
     font-size: 2rem;
   }
 }
+h3 {
+  font-size: 2.5rem;
+}
+
+/* Under 1024px: shrink to 2.5rem */
+@media screen and (max-width: 1024px) {
+  h3 {
+    font-size: 2rem;
+  }
+}
+
+/* Under 768px: shrink again to 2rem */
+@media screen and (max-width: 768px) {
+  h3 {
+    font-size: 1.5rem;
+  }
+}
