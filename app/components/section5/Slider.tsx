@@ -2,7 +2,7 @@
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import SliderCard from "./SliderCard";
-import { useEffect, useRef } from "react";
+import { useEffect as useLayoutEffect, useRef } from "react";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -17,7 +17,7 @@ export default function Slider({ data }: { data: Card[] }) {
   const triggerRef = useRef<HTMLDivElement | null>(null);
   const sliderRef = useRef<HTMLDivElement | null>(null);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const sliderWidth = sliderRef.current?.scrollWidth ?? 0;
     const triggerWidth = triggerRef.current?.offsetWidth ?? 0;
     const distance = sliderWidth - triggerWidth;

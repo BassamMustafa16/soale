@@ -31,14 +31,14 @@ export default function HeroMiddle() {
     };
   }, []);
   return (
-    <div className="flex flex-col gap-10 items-center justify-center max-w-3xl z-10 grow">
+    <div className="flex flex-col gap-10 mt-24 lg:mt-20 mb-10 items-center justify-center max-w-3xl z-10 grow">
       {/* Rounded pargraph */}
       <div
         ref={roundedParagraphRef}
-        className="flex flex-row items-center gap-3 border border-white-100 rounded-full w-fit py-2 px-4"
+        className="flex flex-row items-center gap-3 border border-white-100 rounded-full w-fit py-2 px-4 text-sm text-center"
         style={{ opacity: 0, visibility: "hidden" }}
       >
-        <div className="">
+        <div className="hidden md:block">
           <Image
             src="/images/little-star.svg"
             alt="orange star"
@@ -47,13 +47,14 @@ export default function HeroMiddle() {
           />
         </div>
         <p>
-          Design studio for AI, SaaS & tech startups | Based on San Francisco
+          Design studio for AI, SaaS & tech startups{" "}
+          <span className="hidden lg:inline">| Based on San Francisco</span>
         </p>
       </div>
 
       <h1
         ref={headingRef}
-        className="text-6xl text-center"
+        className="text-3xl md:text-4xl lg:text-6xl text-center"
         style={{ opacity: 0, visibility: "hidden" }}
       >
         Creative studio powering AI, brands & digital futures
@@ -68,7 +69,7 @@ export default function HeroMiddle() {
         products, and grow with purpose.
       </p>
       <Animated>
-        <div className="text-[#212121]">
+        <div className="text-[#212121] text-sm">
           <NavigationButton content="Book 1:1 Meeting" />
         </div>
       </Animated>

@@ -1,5 +1,5 @@
 import HeroSection from "./components/hero/HeroSection";
-import NavBar from "./components/NavBar";
+import MobileNavBar from "./components/MobileNavBar";
 import Section1 from "./components/section1/Section1";
 import Section2 from "./components/section2/Section2";
 import Section3 from "./components/section3/Section3";
@@ -9,7 +9,7 @@ import Section5 from "./components/section5/Section5";
 export default function Home() {
   return (
     <>
-      <NavBar />
+      <MobileNavBar />
       <main className="space-y-20">
         {/* Header */}
         <HeroSection />

@@ -8,7 +8,7 @@ interface SliderCardProps {
 }
 export default function SliderCard({ heading, parag, image }: SliderCardProps) {
   return (
-    <div className="relative rounded-4xl overflow-hidden min-w-xs lg:min-w-sm">
+    <div className="relative rounded-4xl overflow-hidden w-xs aspect-[0.7875] lg:w-sm">
       {/* Image */}
       <div className="">
         <Image

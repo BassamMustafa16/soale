@@ -123,7 +123,7 @@ export default function Section4() {
       {/* Heading */}
       <div className="flex flex-col gap-10 lg:flex-row justify-between w-full">
         {/* Left */}
-        <div className="space-y-5 max-w-lg shrink-0">
+        <div className=" space-y-5 max-w-lg shrink-0">
           <div className="flex flex-row gap-3">
             {/* Orange Star */}
             <div>
