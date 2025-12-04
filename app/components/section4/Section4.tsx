@@ -143,7 +143,7 @@ export default function Section4() {
           </h2>
         </div>
         {/* Right */}
-        <div className="space-y-5 max-w-lg">
+        <div className="space-y-5 max-w-lg text-[#212121]">
           <p className="text-white-500 text-lg">
             We team up with startups, SaaS companies, and digital brands to
             create design-driven solutions that look great — and perform even

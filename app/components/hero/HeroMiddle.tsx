@@ -68,7 +68,9 @@ export default function HeroMiddle() {
         products, and grow with purpose.
       </p>
       <Animated>
-        <NavigationButton content="Book 1:1 Meeting" />
+        <div className="text-[#212121]">
+          <NavigationButton content="Book 1:1 Meeting" />
+        </div>
       </Animated>
     </div>
   );

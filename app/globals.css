@@ -72,3 +72,20 @@ h3 {
     font-size: 1.5rem;
   }
 }
+h4 {
+  font-size: 2rem;
+}
+
+/* Under 1024px: shrink to 2.5rem */
+@media screen and (max-width: 1024px) {
+  h4 {
+    font-size: 1.5rem;
+  }
+}
+
+/* Under 768px: shrink again to 2rem */
+@media screen and (max-width: 768px) {
+  h4 {
+    font-size: 1rem;
+  }
+}

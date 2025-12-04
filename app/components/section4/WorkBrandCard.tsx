@@ -51,7 +51,7 @@ export default function WorkBrandCard({
           />
         </div>
         <div className="inset-0 backdrop-blur-md z-10 absolute opacity-0 hover:opacity-100 transition-all duration-300 flex items-center justify-center">
-          <div>
+          <div className="text-[#212121]">
             <NavigationButton content="Explore Project" />
           </div>
         </div>

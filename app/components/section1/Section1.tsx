@@ -34,7 +34,7 @@ export default function Section1() {
           {/* Numbers */}
           <Numbers />
           {/* Button */}
-          <div className="animated">
+          <div className="animated text-[#212121]">
             <NavigationButton content="Learn about us" />
           </div>
         </div>
