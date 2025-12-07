@@ -38,10 +38,13 @@ body {
   font-family: "Inter Tight", sans-serif;
 }
 
+button {
+
+  transition: all;
+  transition-duration: 300ms;
+}
 button:active{
   scale: 0.9;
-transition: all;
-transition-duration: 300ms;
 }
 
 h2 {
