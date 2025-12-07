@@ -9,9 +9,9 @@ export default function RoundedParagraph() {
   ];
 
   return (
-    <div className="flex flex-row items-center gap-3 border border-white-100 rounded-full w-fit py-2 px-4">
+    <div className="flex flex-row items-center gap-3 md:border border-white-100 rounded-full w-fit md:py-2 md:px-4">
       {/* Images Container */}
-      <div className="flex items-center">
+      <div className="hidden md:flex items-center">
         {roundedPargrapghImagesData.map((data, index) => (
           <RoundedPargraphImage
             key={index}

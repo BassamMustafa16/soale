@@ -10,11 +10,11 @@ export default function Logos() {
     { id: 5, image: "company-logo5.svg", alt: "Company Logo 5" },
   ];
   return (
-    <div className="flex flex-row gap-3">
+    <div className="flex flex-row gap-3 flex-wrap items-center justify-center">
       {logos.map((logo) => (
         <div
           key={logo.id}
-          className="flex items-center justify-center bg-white-50 py-4 px-5 rounded-2xl"
+          className="flex items-center justify-center bg-white-50 py-4 px-5 rounded-2xl w-[110px] md:w-[150px]"
         >
           <Image
             src={`/images/${logo.image}`}

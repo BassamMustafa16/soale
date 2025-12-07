@@ -12,7 +12,7 @@ export default function Section1() {
   return (
     <section className="flex flex-col items-center gap-10 px-5 lg:px-10 max-w-7xl mx-auto">
       {/* Content */}
-      <div className="flex flex-row items-center justify-center">
+      <div className="flex flex-col lg:flex-row gap-10 md:gap-0 items-center justify-center">
         <div className="space-y-10 flex-1 items-center justify-center">
           {/* Rounded pargraph */}
           <div className="animated">
