@@ -69,7 +69,8 @@ export default function Slider({ data }: { data: Card[] }) {
         const sliderIndex = allSections.indexOf(sliderSection as Element);
 
         // Observe all sections before the slider
-        observerTargets = allSections.slice(0, sliderIndex);
+        if(sliderIndex >=0){observerTargets = allSections.slice(0, sliderIndex);}
+        
       }
     }
 

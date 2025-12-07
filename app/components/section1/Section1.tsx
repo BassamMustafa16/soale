@@ -39,7 +39,7 @@ export default function Section1() {
           </div>
         </div>
         {/* Image */}
-        <div className="flex flex-1 grayscale-5 items-center justify-center">
+        <div className="animated flex flex-1 grayscale-5 items-center justify-center">
           <Image
             src="/images/home-section1-image.webp"
             alt="Woman Image"

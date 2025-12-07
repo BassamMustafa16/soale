@@ -3,8 +3,10 @@ import Image from "next/image";
 import NavigationButton from "../NavigationButton";
 import { useState } from "react";
 import WorkBrandCard from "./WorkBrandCard";
+import { useAnimation } from "@/app/lib/AnimationEffect";
 
 export default function Section4() {
+  useAnimation();
   const [currentWorkBrand, setCurrentNav] = useState<
     "AI" | "FINTECH" | "HEALTHCARE" | "SAAS" | "ECOMMERCE"
   >("AI");
@@ -124,7 +126,7 @@ export default function Section4() {
       <div className="flex flex-col gap-10 lg:flex-row justify-between w-full">
         {/* Left */}
         <div className=" space-y-5 max-w-lg shrink-0">
-          <div className="flex flex-row gap-3">
+          <div className="animated flex flex-row gap-3">
             {/* Orange Star */}
             <div>
               <Image
@@ -138,18 +140,20 @@ export default function Section4() {
               our work
             </p>
           </div>
-          <h2 className="leading-[120%]">
+          <h2 className="animated leading-[120%]">
             Featured Design + AI Project portfolio
           </h2>
         </div>
         {/* Right */}
         <div className="space-y-5 max-w-lg text-[#212121]">
-          <p className="text-white-500 text-lg">
+          <p className="animated text-white-500 text-lg">
             We team up with startups, SaaS companies, and digital brands to
             create design-driven solutions that look great — and perform even
             better.
           </p>
-          <NavigationButton content="See more projects" />
+          <div className="animated">
+            <NavigationButton content="See more projects" />
+          </div>
         </div>
       </div>
       {/* Content */}
@@ -157,7 +161,7 @@ export default function Section4() {
         {/* Navs */}
         <div className="flex-1">
           <div
-            className="flex flex-row gap-3 flex-wrap justify-center
+            className="animated flex flex-row gap-3 flex-wrap justify-center
                         lg:flex-col lg:gap-0 lg:sticky lg:top-[64px]"
           >
             {categories.map((category) => (
@@ -183,14 +187,15 @@ export default function Section4() {
           {workBrands
             .filter((workBrand) => workBrand.category === currentWorkBrand)
             .map((workBrand) => (
-              <WorkBrandCard
-                key={workBrand.id}
-                logo={workBrand.logo}
-                heading={workBrand.heading}
-                paragraph={workBrand.paragraph}
-                tags={workBrand.tags}
-                image={workBrand.image}
-              />
+              <div key={workBrand.id} className="animated">
+                <WorkBrandCard
+                  logo={workBrand.logo}
+                  heading={workBrand.heading}
+                  paragraph={workBrand.paragraph}
+                  tags={workBrand.tags}
+                  image={workBrand.image}
+                />
+              </div>
             ))}
         </div>
       </div>

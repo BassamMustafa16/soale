@@ -65,12 +65,12 @@ export default function HeroBottom() {
 
   return (
     <div
-      className={`${ibmPlexMono.className} grid grid-cols-2 md:grid-cols-4 gap-5 w-fit text-4xl font-normal z-10 mb-10 `}
+      className={`${ibmPlexMono.className} grid grid-cols-2 md:grid-cols-4 gap-5 w-full text-4xl font-normal z-10 mb-10 `}
     >
       {/* Element 01 — note inline hidden style to be extra-safe on first paint */}
       <div
         ref={elementOneRef}
-        className="space-y-3"
+        className="space-y-3 text-3xl md:text-4xl"
         style={{ opacity: 0, visibility: "hidden" }}
       >
         <hr className="w-1/3" />
@@ -90,7 +90,7 @@ export default function HeroBottom() {
       {/* Element 02 */}
       <div
         ref={elementTwoRef}
-        className="space-y-3"
+        className="space-y-3 text-3xl md:text-4xl"
         style={{ opacity: 0, visibility: "hidden" }}
       >
         <hr className="w-1/3" />
@@ -111,7 +111,7 @@ export default function HeroBottom() {
       {/* Element 03 */}
       <div
         ref={elementThreeRef}
-        className="space-y-3"
+        className="space-y-3 text-3xl md:text-4xl"
         style={{ opacity: 0, visibility: "hidden" }}
       >
         <hr className="w-1/3" />
@@ -131,7 +131,7 @@ export default function HeroBottom() {
       {/* Element 04 */}
       <div
         ref={elementFourRef}
-        className="space-y-3"
+        className="space-y-3 text-3xl md:text-4xl"
         style={{ opacity: 0, visibility: "hidden" }}
       >
         <hr className="w-1/3" />

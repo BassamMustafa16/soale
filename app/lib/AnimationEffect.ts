@@ -11,7 +11,7 @@ export function useAnimation(selector = ".animated") {
 
     ScrollTrigger.batch(selector, {
       start: "top bottom-=150px",
-      end: "bottom 150px",
+      end: "bottom top-=30px",
 
       // onLeave: (batch) =>
       //   gsap.to(batch, {
@@ -23,30 +23,39 @@ export function useAnimation(selector = ".animated") {
       //     stagger: { each: 0.4, from: "start" },
       //   }),
 
-      // onLeaveBack: (batch) =>
-      //   gsap.to(batch, {
-      //     y: 30,
-      //     autoAlpha: 0,
-      //     duration: 1,
-      //     ease: "power1.out",
-      //     overwrite: true,
-      //     stagger: { each: 0.4, from: "start" },
-      //   }),
+      onLeaveBack: (batch) => {
+        const immediate = batch.map((el) => ScrollTrigger.isInViewport(el));
+        gsap.to(batch, {
+          y: 30,
+          autoAlpha: 0,
+          duration: 0.5,
+          ease: "power1.out",
+          overwrite: true,
+          stagger: immediate.includes(true)
+            ? 0 // 👈 No delay if elements already visible
+            : { each: 0.4, from: "start" },
+        });
+      },
 
-      onEnter: (batch) =>
+      onEnter: (batch) => {
+        const immediate = batch.map((el) => ScrollTrigger.isInViewport(el));
+
         gsap.to(batch, {
           y: 0,
           autoAlpha: 1,
           duration: 1,
           ease: "power1.out",
           overwrite: true,
-          stagger: { each: 0.4, from: "start" },
-        }),
+          stagger: immediate.includes(true)
+            ? 0 // 👈 No delay if elements already visible
+            : { each: 0.4, from: "start" },
+        });
+      },
 
       // onEnterBack: (batch) =>
       //   gsap.to(batch, {
       //     y: 0,
-      //     autoAlpha: 1,
+      //     autoAlpha: 0,
       //     duration: 1,
       //     ease: "power1.out",
       //     overwrite: true,
