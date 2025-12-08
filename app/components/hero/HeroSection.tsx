@@ -4,7 +4,7 @@ import HeroMiddle from "./HeroMiddle";
 
 export default function HeroSection() {
   return (
-    <section className="md:h-screen flex flex-col items-center relative overflow-hidden px-4 pt-10 md:pt-0">
+    <section className="md:h-screen flex flex-col items-center relative overflow-hidden px-5 lg:px-10 pt-10 md:pt-0">
       {/* Background */}
       <HeroBackground />
 

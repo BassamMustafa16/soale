@@ -21,6 +21,7 @@ export default function Logos() {
             alt={logo.alt}
             width={104}
             height={28}
+            style={{ width: "100%", height: "auto" }}
           />
         </div>
       ))}

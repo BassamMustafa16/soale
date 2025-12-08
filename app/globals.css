@@ -8,7 +8,10 @@
   --white-500: #ffffff80;
   --white-700: #ffffffb3;
   --black-240: #0000003d;
+  --gray-950: #0a0a0a;
   --brand-orange: #f25325;
+  --brand-orange-100: #f253251a;
+  --brand-orange-400: #f2532566;
 }
 
 @theme inline {
@@ -19,7 +22,10 @@
   --color-white-500: var(--white-500);
   --color-white-700: var(--white-700);
   --color-black-240: var(--black-240);
+  --color-gray-950: var(--gray-950);
   --color-brand-orange: var(--brand-orange);
+  --color-brand-orange-100: var(--brand-orange-100);
+  --color-brand-orange-400: var(--brand-orange-400);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
   --font-plex-mono: var(--font-plex-mono);
@@ -39,11 +45,10 @@ body {
 }
 
 button {
-
   transition: all;
   transition-duration: 300ms;
 }
-button:active{
+button:active {
   scale: 0.9;
 }
 

@@ -65,7 +65,7 @@ export default function HeroBottom() {
 
   return (
     <div
-      className={`${ibmPlexMono.className} grid grid-cols-2 md:grid-cols-4 gap-5 w-full text-4xl font-normal z-10 mb-10 `}
+      className={`${ibmPlexMono.className} grid grid-cols-2 md:grid-cols-4 gap-5 w-full text-4xl font-normal z-10 mb-10 max-w-7xl px-5 lg:px-10`}
     >
       {/* Element 01 — note inline hidden style to be extra-safe on first paint */}
       <div

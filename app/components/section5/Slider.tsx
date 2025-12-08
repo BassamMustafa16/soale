@@ -42,6 +42,7 @@ export default function Slider({ data }: { data: Card[] }) {
             end: `+=${distance}`,
             scrub: 1,
             pin: true,
+            pinSpacing: true,
             invalidateOnRefresh: true,
           },
         });
@@ -69,8 +70,9 @@ export default function Slider({ data }: { data: Card[] }) {
         const sliderIndex = allSections.indexOf(sliderSection as Element);
 
         // Observe all sections before the slider
-        if(sliderIndex >=0){observerTargets = allSections.slice(0, sliderIndex);}
-        
+        if (sliderIndex >= 0) {
+          observerTargets = allSections.slice(0, sliderIndex);
+        }
       }
     }
 
@@ -110,14 +112,8 @@ export default function Slider({ data }: { data: Card[] }) {
   }, [data]);
 
   return (
-    <div
-      ref={triggerRef}
-      className="flex items-start justify-start w-full overflow-hidden"
-    >
-      <div
-        ref={sliderRef}
-        className="flex flex-row gap-10 w-fit"
-      >
+    <div ref={triggerRef} className="flex items-start justify-start w-full">
+      <div ref={sliderRef} className="flex flex-row gap-10 w-fit">
         {data.map((el) => (
           <SliderCard
             key={el.id}

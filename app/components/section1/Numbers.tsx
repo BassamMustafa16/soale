@@ -20,7 +20,7 @@ export default function Numbers() {
     >
       {/* Element 01 */}
       <Animated setIsCompleted={setFirstElementVisiable}>
-        <div className="space-y-3">
+        <div className="space-y-3 text-3xl md:text-4xl">
           <hr className="w-1/3" />
           <p>
             $
@@ -38,7 +38,7 @@ export default function Numbers() {
       </Animated>
       {/* Element 02 */}
       <Animated setIsCompleted={setSecondElementVisiable}>
-        <div className="space-y-3">
+        <div className="space-y-3 text-3xl md:text-4xl">
           <hr className="w-1/3" />
           <p>
             <CountUp

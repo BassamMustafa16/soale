@@ -3,7 +3,6 @@ import NavigationButton from "../NavigationButton";
 import Image from "next/image";
 import RoundedParagraph from "./RoundedParagraph";
 import Numbers from "./Numbers";
-import Animated from "../animation/Animated";
 import Logos from "./Logos";
 import { useAnimation } from "@/app/lib/AnimationEffect";
 
@@ -45,6 +44,7 @@ export default function Section1() {
             alt="Woman Image"
             width={512}
             height={512}
+            style={{ width: "100%", height: "auto" }}
           />
         </div>
       </div>

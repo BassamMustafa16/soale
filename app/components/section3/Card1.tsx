@@ -34,6 +34,7 @@ export default function Card1() {
           alt="Goldline logo"
           width={119}
           height={28}
+          
         />
       </div>
     </div>

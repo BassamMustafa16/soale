@@ -7,7 +7,7 @@ import { useAnimation } from "@/app/lib/AnimationEffect";
 
 export default function Section4() {
   useAnimation();
-  const [currentWorkBrand, setCurrentNav] = useState<
+  const [currentWorkBrand, setCurrentWorkBrand] = useState<
     "AI" | "FINTECH" | "HEALTHCARE" | "SAAS" | "ECOMMERCE"
   >("AI");
   const categories: {
@@ -175,7 +175,7 @@ export default function Section4() {
                   currentWorkBrand === category.name &&
                   "bg-brand-orange lg:pl-4!"
                 }`}
-                onClick={() => setCurrentNav(category.name)}
+                onClick={() => setCurrentWorkBrand(category.name)}
               >
                 {category.name}
               </button>

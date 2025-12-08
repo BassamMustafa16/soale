@@ -1,5 +1,4 @@
 import Slider from "./Slider";
-import SliderCard from "./SliderCard";
 
 export default function Section5() {
   const data = [
