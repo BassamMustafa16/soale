@@ -1,4 +1,15 @@
+"use client";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useEffect, useRef } from "react";
+
+gsap.registerPlugin(ScrollTrigger);
+
 export default function Section6() {
+  const containerRef = useRef<HTMLDivElement | null>(null);
+  const cardsRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const animationRef = useRef<gsap.core.Timeline | null>(null);
+
   const headings = ["Product Strategy", "UX Design", "UI Design", "Delivery"];
   const data = [
     {
@@ -92,6 +103,72 @@ export default function Section6() {
       content: "Feedback",
     },
   ];
+
+  useEffect(() => {
+    // Function to create/update the animation
+    const createAnimation = () => {
+      // Kill existing animation if it exists
+      if (animationRef.current) {
+        animationRef.current.scrollTrigger?.kill();
+        animationRef.current.kill();
+      }
+
+      // Clear inline styles that GSAP applied
+      cardsRefs.current.forEach((col) => {
+        if (col) {
+          gsap.set(col, { clearProps: "all" });
+        }
+      });
+
+      animationRef.current = gsap.timeline({
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: "center center",
+          end: "+=2000",
+          pin: true,
+          pinSpacing: true,
+          scrub: 1,
+          onRefresh: () => console.log("Section6 ScrollTrigger refreshed"),
+          invalidateOnRefresh: true,
+        },
+      });
+
+      // Animate each column one-by-one
+      cardsRefs.current.forEach((col) => {
+        if (!col) return;
+        animationRef.current?.from(col, {
+          y: 40,
+          autoAlpha: 0,
+        });
+      });
+    };
+
+    // Initial animation creation
+    createAnimation();
+
+    // Debounced resize handler
+    let resizeTimer: NodeJS.Timeout;
+    const handleResize = () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => {
+        console.log("Section6 Timer");
+        // ScrollTrigger.refresh();
+        createAnimation();
+      }, 700);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      clearTimeout(resizeTimer);
+      window.removeEventListener("resize", handleResize);
+      if (animationRef.current) {
+        animationRef.current.scrollTrigger?.kill();
+        animationRef.current.kill();
+      }
+    };
+  }, []);
+
   return (
     <section className="flex flex-col items-center gap-10 px-5 lg:px-10 max-w-7xl mx-auto bg-gray-950 py-15">
       {/* Heading */}
@@ -100,22 +177,29 @@ export default function Section6() {
           We simplify product Design process
         </h2>
         <p className="text-white-700  max-w-lg">
-          We don’t follow trends blindly or design without context.
+          {"We don't follow trends blindly or design without context."}
         </p>
         <p className="text-white-700  max-w-lg">
-          Every UI we craft aligns closely with your product’s purpose and
+          {`Every UI we craft aligns closely with your product's purpose and
           business goals. And we never develop without testing — validation is
-          non-negotiable.
+          non-negotiable.`}
         </p>
       </div>
       {/* Table */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 w-full">
+      <div
+        ref={containerRef}
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 w-full"
+      >
         {headings.map((heading, indx) => (
           <div key={indx} className="border border-white-100 p-2">
-            {/* Heading */}
             <p className="text-white-500">{heading}</p>
-            {/* Rows */}
-            <div className="p-2 space-y-1 mt-2 text-sm">
+
+            <div
+              ref={(el) => {
+                cardsRefs.current[indx] = el;
+              }}
+              className="p-2 space-y-1 mt-2 text-sm"
+            >
               {data
                 .filter((el) => el.heading === heading)
                 .map((el) => (
@@ -123,7 +207,7 @@ export default function Section6() {
                     key={el.id}
                     className="bg-white p-2 rounded-full flex flex-row items-center gap-2"
                   >
-                    <div className="w-8 aspect-square rounded-full border border-brand-orange-400 bg-brand-orange-100 text-brand-orange grow-0 flex items-center justify-center">
+                    <div className="w-8 aspect-square rounded-full border bg-brand-orange-100 text-brand-orange flex items-center justify-center">
                       {el.id}
                     </div>
                     <span className="text-[#212121] font-medium">

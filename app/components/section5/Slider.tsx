@@ -42,6 +42,7 @@ export default function Slider({ data }: { data: Card[] }) {
             end: `+=${distance}`,
             scrub: 1,
             pin: true,
+            onRefresh: () => console.log("Section5 ScrollTrigger refreshed"),
             pinSpacing: true,
             invalidateOnRefresh: true,
           },
@@ -76,12 +77,15 @@ export default function Slider({ data }: { data: Card[] }) {
       }
     }
 
+    let layoutResizeTimer: NodeJS.Timeout;
     // Watch for resize/layout changes on previous sections
     const resizeObserver = new ResizeObserver(() => {
       // Debounce the refresh to avoid too many calls
-      setTimeout(() => {
+      clearTimeout(layoutResizeTimer);
+      layoutResizeTimer = setTimeout(() => {
+        console.log("Section5 Layout");
         ScrollTrigger.refresh();
-      }, 50);
+      }, 600);
     });
 
     // Observe all target elements
@@ -91,17 +95,23 @@ export default function Slider({ data }: { data: Card[] }) {
       }
     });
 
-    // Also observe window resize
+    // Debounced resize handler
+    let resizeTimer: NodeJS.Timeout;
     const handleResize = () => {
-      setTimeout(() => {
-        ScrollTrigger.refresh();
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => {
+        clearTimeout(layoutResizeTimer);
+        console.log("Section5 Resize");
+        // ScrollTrigger.refresh();
         createAnimation();
-      }, 100);
+      }, 500);
     };
 
     window.addEventListener("resize", handleResize);
 
     return () => {
+      clearTimeout(resizeTimer);
+      clearTimeout(layoutResizeTimer);
       resizeObserver.disconnect();
       window.removeEventListener("resize", handleResize);
       if (animationRef.current) {
@@ -112,7 +122,10 @@ export default function Slider({ data }: { data: Card[] }) {
   }, [data]);
 
   return (
-    <div ref={triggerRef} className="flex items-start justify-start w-full">
+    <div
+      ref={triggerRef}
+      className="flex items-start justify-start w-full overflow-hidden"
+    >
       <div ref={sliderRef} className="flex flex-row gap-10 w-fit">
         {data.map((el) => (
           <SliderCard
