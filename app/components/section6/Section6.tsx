@@ -105,6 +105,8 @@ export default function Section6() {
   ];
 
   useEffect(() => {
+    let screenWidth = window.innerWidth;
+
     // Function to create/update the animation
     const createAnimation = () => {
       // Kill existing animation if it exists
@@ -123,12 +125,13 @@ export default function Section6() {
       animationRef.current = gsap.timeline({
         scrollTrigger: {
           trigger: containerRef.current,
-          start: "center center",
+          start: screenWidth >= 1024 ? "center center" : "top top+=64",
+          markers: true,
           end: "+=2000",
           pin: true,
           pinSpacing: true,
           scrub: 1,
-          onRefresh: () => console.log("Section6 ScrollTrigger refreshed"),
+
           invalidateOnRefresh: true,
         },
       });
@@ -151,8 +154,7 @@ export default function Section6() {
     const handleResize = () => {
       clearTimeout(resizeTimer);
       resizeTimer = setTimeout(() => {
-        console.log("Section6 Timer");
-        // ScrollTrigger.refresh();
+        screenWidth = window.innerWidth;
         createAnimation();
       }, 700);
     };
@@ -188,7 +190,7 @@ export default function Section6() {
       {/* Table */}
       <div
         ref={containerRef}
-        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 w-full"
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 w-full border"
       >
         {headings.map((heading, indx) => (
           <div key={indx} className="border border-white-100 p-2">

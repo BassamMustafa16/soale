@@ -102,7 +102,6 @@ export default function Slider({ data }: { data: Card[] }) {
       resizeTimer = setTimeout(() => {
         clearTimeout(layoutResizeTimer);
         console.log("Section5 Resize");
-        // ScrollTrigger.refresh();
         createAnimation();
       }, 500);
     };
